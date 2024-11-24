@@ -3,7 +3,7 @@
 ### About
 
 This is a brain-tumor prediction model which predicts wheather 
-the x-ray of a brain has brain-tumor has or not.
+the x-ray of a brain has tumor has or not.
 
 # Technologies Used
 
