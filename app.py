@@ -46,7 +46,7 @@ def getresult(img):
 
 @app.route('/',methods=['GET'])
 def index():
-   return render_template('test.html')
+   return render_template('index.html')
 
 @app.route('/predict', methods=['GET','POST'])
 def upload():
