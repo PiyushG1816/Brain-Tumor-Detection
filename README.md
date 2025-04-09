@@ -1,24 +1,54 @@
-# Brain-Tumor Predicton
+# Brain Tumor Detection Using VGG19
 
-### About
+This project focuses on detecting the presence of brain tumors in MRI images using deep learning techniques. A Convolutional Neural Network (CNN) based on **VGG19** architecture is used for binary classification — detecting whether a tumor is **present** or **not**.
 
-This is a brain-tumor prediction model which predicts wheather 
-the x-ray of a brain has tumor has or not.
+## Project Overview
 
-# Technologies Used
+- **Type**: Binary Classification
+- **Input**: Brain MRI Images
+- **Output**: Tumor / No Tumor
+- **Model**: Pretrained VGG19 (Transfer Learning)
+- **Dataset**: [Brain MRI Images for Brain Tumor Detection (Kaggle)](https://www.kaggle.com/datasets/jjprotube/brain-mri-images-for-brain-tumor-detection)
 
-- PYTHON
-- FLASK
-- OpenCV-Python
-- TensorFlow
-- Pillow
+## Tech Stack
 
-# Steps for Project 
+- Python
+- Jupyter Notebook
+- TensorFlow / Keras
+- OpenCV
+- NumPy / Matplotlib
 
-1. Downloaded Dataset from Kaggel.
-2. Make folders for images having and not having tumor respectively.
-3. Done some analysis and vizualised the dataset.
-4. Did some data augmentation to remove the data imbalance.
-5. Preprocessed the data to remove extra black pixels from the images.
-6. Splitted the data and built models.
-7. Final model is trained by loading weights from previous models.
+## Dataset
+
+The dataset contains two categories of brain MRI scans:
+
+- **Yes** – Images with brain tumors
+- **No** – Images without tumors
+
+Download the dataset from Kaggle:  
+🔗 [https://www.kaggle.com/datasets/jjprotube/brain-mri-images-for-brain-tumor-detection](https://www.kaggle.com/datasets/jjprotube/brain-mri-images-for-brain-tumor-detection)
+
+## Model Architecture
+
+- **Base Model**: VGG19 (pretrained on ImageNet)
+- **Customization**: Top layers replaced with custom fully connected layers
+- **Activation**: ReLU & Softmax
+- **Loss Function**: Binary Crossentropy
+- **Optimizer**: Adam
+
+## Results
+
+| Metric       | Value      |
+|--------------|------------|
+| Accuracy     | ~80%       |
+| Loss         | Low and stable after training |
+| Visuals      | Training/Validation curves plotted |
+
+>  Note: Exact values may vary depending on train/validation split.
+
+## How to Run
+
+1. **Clone the repo**
+   ```bash
+   git clone https://github.com/PiyushG1816/Brain-Tumor-Detection.git
+   cd Brain-Tumor-Detection
