@@ -1,5 +1,5 @@
 numpy
-opencv-python
+OpenCV-python
 Pillow 
 Flask
 tensorflow
