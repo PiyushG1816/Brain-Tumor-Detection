@@ -30,7 +30,7 @@ output = Dense(2, activation="softmax")(class_2)
 model_3 = Model(base_model.input, output)
 model_3.load_weights(model_path)
     
-app = Flask(__name__,template_folder='template')
+app = Flask(__name__,template_folder='templates')
 
 def get_className(classno):
     if classno == 0:
