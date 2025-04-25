@@ -1,5 +1,0 @@
-[phases.setup]
-nixPkgs = ["libGL", "glib", "opencv"]
-
-[start]
-cmd = "gunicorn app:app"
