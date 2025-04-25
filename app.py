@@ -2,12 +2,21 @@ import os
 import numpy as np
 import cv2
 from PIL import Image
+import gdown
 from werkzeug.utils import secure_filename
 from flask import render_template,request,Flask,jsonify
 from keras._tf_keras.keras.models import Model
 from keras._tf_keras.keras.layers import Input, Dropout, Dense, Flatten
 from keras._tf_keras.keras.applications.vgg19 import VGG19
 
+model_path = 'vgg19_model_Final.h5'
+
+if not os.path.exists(model_path):
+    print("Downloading model from Google Drive...")
+    url = 'https://drive.google.com/uc?id=1XqoJY-R__TfXKQX0MAzW_k_UZ-d_fTlg'
+    gdown.download(url, model_path, quiet=False)
+    print("Download complete.")
+    
 base_model = VGG19(include_top=False, input_shape=(240,240,3))
 
 x = base_model.output
@@ -19,8 +28,8 @@ class_2 = Dense(1152, activation = 'relu')(dropout)
 output = Dense(2, activation="softmax")(class_2)
 
 model_3 = Model(base_model.input, output)
-model_3.load_weights('vgg19_model_Final.h5')
-
+model_3.load_weights(model_path)
+    
 app = Flask(__name__,template_folder='template')
 
 def get_className(classno):
