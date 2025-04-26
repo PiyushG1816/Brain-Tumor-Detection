@@ -13,9 +13,11 @@ model_path = 'vgg19_model_Final.h5'
 
 if not os.path.exists(model_path):
     print("Downloading model from Google Drive...")
-    url = 'https://drive.google.com/file/d/1XqoJY-R__TfXKQX0MAzW_k_UZ-d_fTlg'
-    gdown.download(url, model_path, quiet=False)
+    url = 'https://drive.google.com/uc?id=1XqoJY-R__TfXKQX0MAzW_k_UZ-d_fTlg'
+    gdown.download(url, model_path, quiet=False, fuzzy=True)
     print("Download complete.")
+else:
+    print("Model file already exists and looks correct.")
     
 base_model = VGG19(include_top=False, input_shape=(240,240,3))
 
